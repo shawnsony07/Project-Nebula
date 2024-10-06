@@ -1,0 +1,217 @@
+/* General Styling */
+body {
+    font-family: 'Orbitron', sans-serif;
+    background: radial-gradient(circle at center, #0c1445, #020814);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: space-between; /* Ensure the chatbot is on the left, and rendering is on the right */
+    height: 100vh;
+    position: relative;
+}
+
+/* Starfield Animation in Background */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://c4.wallpaperflare.com/wallpaper/486/591/731/spitzer-space-telescope-space-galaxy-nasa-wallpaper-preview.jpg');
+    opacity: 0.3;
+    z-index: -2;
+    animation: starfield 200s linear infinite;
+}
+
+@keyframes starfield {
+    0% { background-position: 0 0; }
+    100% { background-position: -10000px 10000px; }
+}
+
+/* Chatbot Container */
+#chatbot-container {
+    width: 25%; /* Takes 25% of the screen width */
+    background-color: rgba(15, 15, 45, 0.85); /* Slight transparency */
+    border-right: 2px solid #1f4068;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 150, 255, 0.7);
+    height: 100vh;
+    overflow-y: auto;
+}
+
+#chatbox {
+    background-color: #1b1f36;
+    padding: 15px;
+    margin-top: 20px;
+    height: 70vh; /* Adjust height for chat area */
+    overflow-y: auto;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+#user-input {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+}
+
+#userMessage {
+    padding: 12px;
+    font-size: 16px;
+    width: 70%;
+    border: none;
+    border-radius: 10px;
+    background-color: #1b1f36;
+    color: #fff;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+#userMessage::placeholder {
+    color: #888;
+}
+
+#sendMessage {
+    padding: 12px;
+    font-size: 16px;
+    margin-left: 10px;
+    background-color: #162447;
+    color: white;
+    border: 2px solid #1f4068;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 0 20px rgba(0, 150, 255, 0.7);
+}
+
+/* Map Container and 3D Render on the Right */
+#map-side {
+    width: 75%; /* Takes 75% of the screen width */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+h1 {
+    margin-top: 40px;
+    font-size: 3em;
+    color: #f0f0f0;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.7), 0 0 40px rgba(255, 255, 255, 0.3);
+    letter-spacing: 2px;
+}
+
+/* Control Section */
+#controls {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Planet Input Field */
+#planetInput {
+    padding: 12px;
+    font-size: 18px;
+    width: 300px;
+    border: none;
+    border-radius: 10px;
+    background-color: #1b1f36;
+    color: #fff;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+#planetInput::placeholder {
+    color: #888;
+}
+
+#planetInput:hover {
+    box-shadow: 0 0 25px rgba(0, 150, 255, 0.5);
+    transform: scale(1.05);
+}
+
+/* Fetch Button */
+#fetchButton {
+    padding: 12px 25px;
+    margin-top: 20px;
+    font-size: 18px;
+    background-color: #162447;
+    color: white;
+    border: 2px solid #1f4068;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 0 20px rgba(0, 150, 255, 0.7);
+}
+
+#fetchButton:hover {
+    background-color: #1f4068;
+    box-shadow: 0 0 30px rgba(0, 150, 255, 1), 0 0 60px rgba(0, 150, 255, 0.7);
+    transform: translateY(-5px);
+}
+
+/* Map Container Styling */
+#map-container {
+    width: 100%;
+    height: calc(100vh - 300px);
+    position: relative;
+    margin-top: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    background-color: rgba(10, 10, 30, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+/* Canvas for 3D Render */
+#starMap {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: transparent;
+    border-radius: 15px;
+    cursor: grab;
+    transition: transform 0.2s ease-in-out;
+}
+
+#starMap:hover {
+    transform: scale(1.02);
+}
+
+/* Tooltip Styling for Star Info */
+.tooltip {
+    position: absolute;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #111;
+    border-radius: 8px;
+    font-size: 14px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    pointer-events: none;
+    display: none;
+    z-index: 10;
+}
+
+.tooltip.visible {
+    display: block;
+}
+
+/* Footer Styling */
+footer {
+    margin-top: 40px;
+    font-size: 14px;
+    color: #888;
+    text-align: center;
+}
+
+/* Smooth transitions for interactive elements */
+input, button, canvas {
+    transition: all 0.3s ease;
+}

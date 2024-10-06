@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exoplanet Star Map</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">  <!-- Futuristic font -->
+    <link rel="stylesheet" href="./frontend.css">
+</head>
+<body>
+    <!-- Chatbot Container on the Left -->
+    <div id="chatbot-container">
+        <h2>Chatbot</h2>
+        <div id="chatbox">
+            <div id="chatlog"></div> <!-- Chat logs will appear here -->
+        </div>
+        <div id="user-input">
+            <input type="text" id="userMessage" placeholder="Ask about the planet...">
+            <button id="sendMessage">Send</button>
+        </div>
+    </div>
+
+    <!-- 3D Star Map Section on the Right -->
+    <div id="map-side">
+        <h1>Exoplanet 3D Star Map</h1>
+        <div id="controls">
+            <input type="text" id="planetInput" placeholder="Enter Exoplanet Name">
+            <button id="fetchButton">Fetch Star Map</button>
+        </div>
+        <div id="map-container">
+            <div id="tooltip" class="tooltip"></div>
+            <canvas id="starMap"></canvas> <!-- Canvas for Three.js rendering -->
+        </div>
+
+        <!-- Footer for credit -->
+        <footer>
+            <p>Powered by NASA Exoplanet Archive and Gaia Data</p>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="./frontend.js"></script>
+</body>
+</html>

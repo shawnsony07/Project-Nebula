@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
+
+:root {
+  --glow-color: hsl(41, 100%, 50%);
+}
+
+
+body {
+  color: #fcff44ef;
+  height: 100%;
+  overflow: hidden;
+  background: url('./7382d1b1fcd786cf8a37562e7ac80823.jpg');
+  background-size:cover ;
+  background-color: #0000006f;
+}
+
+.headstyle {
+    background: 50% 100%/50% 50% no-repeat radial-gradient(ellipse at bottom, #d79208ee, transparent, transparent);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 50px;
+    display: flex;
+    align-items: top;
+    justify-content:center;
+
+    font-family: "Castellar";
+    -webkit-animation: reveal 3000ms ease-in-out forwards 200ms, glow 2500ms linear infinite 2000ms;
+            animation: reveal 3000ms ease-in-out forwards 200ms, glow 2500ms linear infinite 2000ms;
+  }
+  @-webkit-keyframes reveal {
+    80% {
+      letter-spacing: 8px;
+    }
+    100% {
+      background-size: 300% 300%;
+    }
+  }
+  @keyframes reveal {
+    80% {
+      letter-spacing: 8px;
+    }
+    100% {
+      background-size: 300% 300%;
+    }
+  }
+  @-webkit-keyframes glow {
+    40% {
+      text-shadow: 0 0 8px #f56003;
+    }
+  }
+  @keyframes glow {
+    40% {
+      text-shadow: 0 0 8px #875211;
+    }
+  }
+
+.center{
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Catellar";
+}
+
+p{
+    width: 90%;
+    font-size: 40px;
+    display: block;
+    text-align: center;
+    
+}
+
+
+
+.char{
+    font-size: 40px;
+    height: 40px;
+    animation: an 1s ease-out 1 both;
+    display: inline-block;
+
+}
+
+@keyframes an{
+
+    from{
+        opacity: 0;
+        transform: perspective(500px) translate3d(-35px, -40px, -150px) rotate3d(1, -1, 0, 35deg);
+    }
+    to{
+        opacity: 1;
+        transform: perspective(500px) translate3d(0, 0, 0);
+    }
+}
+
+.clic{
+  background-color: rgba(0, 0, 0, 0.434);
+	color:rgba(255, 255, 255, 0.701);
+	border: 0;
+	border-radius: 15px;
+	display: block;
+	margin: 15px auto;
+	padding: 15px 45px;
+	width: 100%;
+	font-size: 20px;
+	font-weight: bold;
+	cursor: pointer;
+	opacity: 1;
+	visibility: visible;
+	-webkit-transition: all 0.3s ease;
+
+	&:hover {
+		transition: all 0.3s ease;
+		background-color: rgba(0, 0, 0, 0.768);
+	}
+}
+
+
+
+
