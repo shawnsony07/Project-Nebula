@@ -13,9 +13,6 @@ CORS(app)
 # Set your OpenAI API key
 openai.api_key = 'YOUR-API-KEY'
 
-# Specify the directory where you want to save the JSON file
-SAVE_DIRECTORY = r"C:\Users\LENOVO\Documents\exosky"
-
 def clean_data_for_json(data):
     if isinstance(data, np.ma.MaskedArray):
         return data.filled(None).tolist()
@@ -146,17 +143,6 @@ def fetch_star_data(planet_name):
             "y": y,
             "z": z
         })
-
-    # Save response data to a JSON file
-    json_file_path = os.path.join(SAVE_DIRECTORY, f"{planet_name}_star_data.json")
-    try:
-        with open(json_file_path, 'w') as json_file:
-            json.dump(clean_data_for_json(response_data), json_file, indent=4)
-        print(f"Data saved to {json_file_path}")
-    except Exception as e:
-        print(f"Error saving data to file: {e}")
-
-    return jsonify(clean_data_for_json(response_data))
 
 @app.route('/chatgpt', methods=['POST'])
 def chatgpt():
